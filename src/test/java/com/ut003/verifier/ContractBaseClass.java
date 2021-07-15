@@ -18,7 +18,7 @@ import lombok.SneakyThrows;
 @AutoConfigureMessageVerifier
 public class ContractBaseClass {
 
-    private static final String UT003_FLOW = readMessageFromFile();
+    private static final String UT003_FLOW_MESSAGE = readMessageFromFile();
 
     @Autowired
     private JmsMessageSender jmsMessageSender;
@@ -29,7 +29,7 @@ public class ContractBaseClass {
     }
 
     public void sendMessage() {
-        jmsMessageSender.sendMessage(UT003_FLOW);
+        jmsMessageSender.sendMessage(UT003_FLOW_MESSAGE);
     }
 
 }

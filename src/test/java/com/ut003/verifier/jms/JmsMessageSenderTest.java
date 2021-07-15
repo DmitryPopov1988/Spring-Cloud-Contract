@@ -22,6 +22,11 @@ class JmsMessageSenderTest {
     @Autowired
     private JmsTemplate jmsTemplate;
 
+    @SneakyThrows
+    private static String readMessageFromFile() {
+        return new String(readAllBytes(getFile("classpath:contracts/UT003.xml").toPath()));
+    }
+
     @Test
     @SneakyThrows
     void sendMessage() {
@@ -30,11 +35,6 @@ class JmsMessageSenderTest {
         String messageFromQ = (String) jmsTemplate.receiveAndConvert(GAS_AFMS);
 
         assertThat(messageFromQ).isEqualTo(UT003_FLOW);
-    }
-
-    @SneakyThrows
-    private static String readMessageFromFile() {
-        return new String(readAllBytes(getFile("classpath:contracts/UT003.xml").toPath()));
     }
 
 }
