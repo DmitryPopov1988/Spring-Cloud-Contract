@@ -19,8 +19,7 @@ Contract.make {
         body(file('UT003.xml').toString())
 
 
-//        Example how to verify XML
-
+//        Example to verify payload in XML
 //        bodyMatchers {
 //            xPath('/test/duck/text()', byRegex("[0-9]{3}"))
 //            xPath('/test/duck/text()', byCommand('equals($it)'))
